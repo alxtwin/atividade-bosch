@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.container-feed{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.container-feed{
+    max-width: 1000px;
+}
+.container-feed .header-feed{
+    width: 100%;
+    display: flex;
+    min-height: 35px;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid red;
+    justify-content: space-between;
+}
+.container-feed .body-feed{
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid blue;
+}
+.body-feed .body-scroll{
+    padding: 5px;
+}
+.body-feed .post-card{
+    min-height: 110px;
+    margin-bottom: 5px;
+    border: 1px solid red;
+}
