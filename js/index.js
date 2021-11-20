@@ -12,7 +12,7 @@ function checar() {
     //Se o usuário não corresponder ao cadastrado, recebe mensagem de que o usuário não existe.
     if(userEmail.value == storedEmail && userPw.value == storedPw) {
         alert('Usuário autenticado!');
-        window.location = './cadastro.html';
+        window.location = './feed.html';
     }else {
         alert('Esse usuário não existe.');
     }
