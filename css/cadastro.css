@@ -28,6 +28,8 @@
     height: fit-content;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 0 0 20px 0 #979797;
+    border: 1px solid #b1b1b1;
   }
   
   .estilo-input {
