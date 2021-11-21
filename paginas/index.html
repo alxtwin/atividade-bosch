@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/index.css">
-    <script src="../js/index.js" defer></script>
+    <link rel="stylesheet" href="../css/utils.css">
+    <script src="../js/verificar.js" defer></script>
 </head>
 <body>
     <div class="container-login">
@@ -12,16 +12,24 @@
         </span>
 
         <div class="estilo-input">
-            <input id="userEmail" class="estilo-input wrap-input margem-top-35px margem-bottom-35px" type="text" name="email" placeholder="E-mail" autocomplete="off">
+            <input id="userName" class="estilo-input margem-top-35px margem-bottom-35px" type="text" name="email" placeholder="E-mail" autocomplete="off">
         </div>
 
         <div class="estilo-input">
-            <input id="userPw" class="estilo-input wrap-input margem-bottom-35px" type="password" name="password" placeholder="Senha" autocomplete="off">
+            <input id="userPw" class="estilo-input margem-bottom-35px" type="password" name="password" placeholder="Senha" autocomplete="off">
         </div>
 
         <div class="container-login-btn">
-            <button class="button" onclick="checar()"> Login </button>
+            <button class="button" onclick="verificar()"> Login </button>
         </div>
+
+        <p>
+            <span class="texto1">
+            <a href="../paginas/cadastro.html" class="texto1">
+                Não tem conta? Cadastre-se!
+            </a>
+            </span>
+            </p>
     </div>
 </body>
 </html>

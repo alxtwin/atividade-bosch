@@ -8,7 +8,7 @@ function verificar(){
 
     if(userName.value == storedName && userPw.value == storedPw){
         alert('Bem vindo '+userName.value+"!");
-        window.location=""
+        window.location="../paginas/feed.html";
     }else{
         alert('Erro no login, verifique usuário e senha.');
     }
