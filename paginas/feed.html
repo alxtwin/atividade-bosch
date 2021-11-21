@@ -6,7 +6,9 @@
     <title>Feed</title>
     <link rel="stylesheet" href="../css/fontawesome-free-6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/feed.css">
-    <script src="../js/feed.js"></script>
+    <script src="../JS/jquery-3.6.0.min.js"></script>
+    <script src="../JS/postsDefaults.js"></script>
+    <script src="../JS/feed.js"></script>
 </head>
 <body>
     <div class="container-feed">
@@ -22,70 +24,7 @@
             </div>
         </div>
         <div class="body-feed">
-            <div class="body-scroll">
-                <!-- -------------------------------------- -->
-                <div class="post-card">
-                    <div class="card-header">
-                        <div class="header-card-left">
-                            <div class="card-foto-user">
-                                <img src="../img/not_foto_user.png">
-                            </div>
-                            <div class="card-info-user">
-                                <div class="info-user-nome">Diego de Freitas</div>
-                                <div class="info-user-extra">
-                                    <div class="extra-period"> 1d </div>
-                                    <div class="extra-separador"></div>
-                                    <div class="extra-icone">
-                                        <i class="fa fa-users"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="header-card-right">
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="body-card-row"></div>
-                        <div class="body-card-row"></div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="footer-card-row">
-                            <div class="footer-card-left">
-                                <div class="footer-card-curtidas">
-                                    <i class="far fa-thumbs-up"></i>
-                                    336
-                                </div>
-                            </div>
-                            <div class="footer-card-right">
-                                <div class="footer-card-comentarios">
-                                    45 comentários
-                                </div>
-                                <div class="extra-separador"></div>
-                                <div class="footer-card-compartilhamentos">
-                                    102 compartilhamentos
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-card-row">
-                            <div class="btn-card-actions">
-                                <i class="far fa-thumbs-up"></i>
-                                <div class="text-btn-car">Curtir</div>
-                            </div>
-                            <div class="btn-card-actions">
-                                <i class="far fa-comment"></i>
-                                <div class="text-btn-car">Comentar</div>
-                            </div>
-                            <div class="btn-card-actions">
-                                <i class="fa fa-share"></i>
-                                <div class="text-btn-car">Compartilhar</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -------------------------------------- -->
-
-            </div>
+            <div class="body-scroll"> <!-- DINAMICO --> </div>
         </div>
     </div>
 </body>

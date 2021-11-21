@@ -120,6 +120,7 @@ body{
     width: 24px;
     flex-wrap: nowrap;
     margin-right: 5px;
+    position: relative;
     border-radius: 50%;
     flex-direction: column;
     border: 1px solid #9d9d9d;
@@ -209,3 +210,29 @@ body{
 
 }
 
+.tooltip-image-maior{
+    top: 0px;
+    width: 100px;
+    display: none;
+    position: absolute;
+    border-radius: 3px;
+    left: calc(100% + 10px);
+    background-color: white;
+    border: 1px solid #c1c1c1;
+    box-shadow: 0 0 5px 0 black;
+}
+.tooltip-image-maior::before{
+    top: 6px;
+    left: -6px;
+    width: 10px;
+    content: "";
+    height: 10px;
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: #ffffff;
+    border-left: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.card-foto-user:hover .tooltip-image-maior{
+    display: flex;
+}
