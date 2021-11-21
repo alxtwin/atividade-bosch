@@ -12,14 +12,8 @@ $(document).ready(()=>{
             switch (id) {
                 case 'nameUser':
                     if($(el).val().length == 0)
-                        alert('O campo nome é obrigatório!')
+                        alert('O campo nome é obrigatório!');
                     else aux[id] = $(el).val();
-                break;
-                case 'qtdComentarios':
-                    aux[id] = $(el).val() + ' comentários';
-                break;
-                case 'qtdCompartilhamentos':
-                    aux[id] = $(el).val() + ' compartilhamentos';
                 break;
                 default:
                     aux[id] = $(el).val();
@@ -95,7 +89,7 @@ function createPost(data) {
     //body
     let body = $('<div>',{class:'card-body'});
     if(aux.textPost)
-        body.append( $('<div>',{class:'body-card-row', text:aux.textPost}) )
+        body.append( $('<div>',{class:'body-card-row'}).append(aux.textPost) )
     if(aux.imgPost){
         body.append(
             $('<div>',{class:'body-card-row row-img'})
