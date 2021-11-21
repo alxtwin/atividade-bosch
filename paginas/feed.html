@@ -13,14 +13,51 @@
 <body>
     <div class="container-feed">
         <div class="header-feed">
-            <div class="header-left">
-                <button class="buttons">Teste</button>
-            </div>
+            <div class="header-left"></div>
             <div class="header-center">
                 <input class="searchbar" type="text" placeholder="Pesquisar...">
             </div>
             <div class="header-right">
-                <button class="buttons">Teste</button>
+                <div id="btnCreatePost" class="buttons">
+                    <i class="fa fa-plus"></i>
+                    Post
+                    <div class="drop-panel">
+                        <div class="drop-panel-form">
+                            <div class="drop-panel-form-item">
+                                <label for="nameUser">Nome:</label>
+                                <input id="nameUser" type="text" placeholder="Seu nome...">
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <label for="textPost">Texto:</label>
+                                <textarea id="textPost" cols="30" rows="5" maxlength = "100" placeholder="Seu texto..."></textarea>
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <label for="imgPost">Url Imagem:</label>
+                                <input id="imgPost" type="text" placeholder="Url local...">
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <label for="qtdCurtidas">Qtd. Curtidas:</label>
+                                <input id="qtdCurtidas" type="number" min="0" max="999" placeholder="0">
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <label for="qtdComentarios">Qtd. Comentários:</label>
+                                <input id="qtdComentarios" type="number" min="0" max="999" placeholder="0">
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <label for="qtdCompartilhamentos">Qtd. Compartilhamentos:</label>
+                                <input id="qtdCompartilhamentos" type="number" min="0" max="999" placeholder="0">
+                            </div>
+                            <div class="drop-panel-form-item">
+                                <div class="btn-post">Postar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="buttons">
+                    <a href="./index.html">
+                        <i class="fa fa-sign-out-alt"></i>
+                    </a>
+                </button>
             </div>
         </div>
         <div class="body-feed">

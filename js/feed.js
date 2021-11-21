@@ -2,6 +2,42 @@ $(document).ready(()=>{
     $.each(postsDefaults,(i,v)=>{
         $('.body-feed .body-scroll').append(createPost(v));
     });
+
+    $('body').on('click', '.btn-post', function (e) {
+        let inputs = $(this).closest('.drop-panel').find('[id]');
+        let aux = {};
+
+        $.each(inputs,(i,el)=>{
+            let id = $(el).attr('id');
+            switch (id) {
+                case 'nameUser':
+                    if($(el).val().length == 0)
+                        alert('O campo nome é obrigatório!')
+                    else aux[id] = $(el).val();
+                break;
+                case 'qtdComentarios':
+                    aux[id] = $(el).val() + ' comentários';
+                break;
+                case 'qtdCompartilhamentos':
+                    aux[id] = $(el).val() + ' compartilhamentos';
+                break;
+                default:
+                    aux[id] = $(el).val();
+                break;
+            }
+            $(el).val('');
+        });
+        $(this).closest('.drop-panel-show').removeClass('drop-panel-show');
+        $('.body-feed .body-scroll').prepend(createPost(aux));
+    });
+
+    $('body').on('click', '#btnCreatePost', function (e) {
+        if($(e.target).closest('.drop-panel').length == 0){
+            if($(this).hasClass('drop-panel-show'))
+                $(this).removeClass('drop-panel-show');
+            else $(this).addClass('drop-panel-show');
+        }
+    });
 });
 
 function createPost(data) {
@@ -10,8 +46,10 @@ function createPost(data) {
         nameUser: ( data.nameUser ? data.nameUser : 'Sem nome!' ),
         timePost: ( data.timePost ? data.timePost : '1d' ),
         qtdCurtidas: ( data.qtdCurtidas ? data.qtdCurtidas : '0' ),
-        qtdComentarios: ( data.qtdComentarios ? data.qtdComentarios : '0 comentários' ),
-        qtdCompartilhamentos: ( data.qtdCompartilhamentos ? data.qtdCompartilhamentos : '0 compartilhamentos' ),
+        qtdComentarios: ( data.qtdComentarios ? data.qtdComentarios : '0' ),
+        qtdCompartilhamentos: ( data.qtdCompartilhamentos ? data.qtdCompartilhamentos : '0' ),
+        textPost: ( data.textPost ? data.textPost : false ),
+        imgPost: ( data.imgPost ? data.imgPost : false ),
     }
     let html = $('<div>',{class:'post-card'});
     //header
@@ -53,12 +91,22 @@ function createPost(data) {
             )
         )
     );
+
     //body
-    html.append(
-        $('<div>',{class:'card-body'})
-        .append( $('<div>',{class:'body-card-row'}) )
-        .append( $('<div>',{class:'body-card-row'}) )
-    );
+    let body = $('<div>',{class:'card-body'});
+    if(aux.textPost)
+        body.append( $('<div>',{class:'body-card-row', text:aux.textPost}) )
+    if(aux.imgPost){
+        body.append(
+            $('<div>',{class:'body-card-row row-img'})
+            .append( $('<img>',{src:aux.imgPost}) )
+        );
+    }
+    if(!aux.textPost && !aux.imgPost)
+        body.append( $('<div>',{class:'body-card-row', text:'Sem texto!'}) )
+
+    html.append(body);
+
     //footer
     html.append(
         $('<div>',{class:'card-footer'})
@@ -69,14 +117,22 @@ function createPost(data) {
                 .append(
                     $('<div>',{class:'footer-card-curtidas'})
                     .append( $('<i>',{class:'far fa-thumbs-up'}) )
-                    .append( aux.qtdCurtidas )
+                    .append( $('<div>',{class:'curtidas-qtd',text:aux.qtdCurtidas}) )
                 )
             )
             .append(
                 $('<div>',{class:'footer-card-right'})
-                .append( $('<div>',{class:'footer-card-comentarios', text:aux.qtdComentarios}) )
+                .append(
+                    $('<div>',{class:'footer-card-comentarios'})
+                    .append( $('<div>',{class:'comentarios-qtd',text:aux.qtdComentarios}) )
+                    .append( $('<div>',{class:'comentarios-text',text:'comentários'}) )
+                )
                 .append( $('<div>',{class:'extra-separador'}) )
-                .append( $('<div>',{class:'footer-card-compartilhamentos', text:aux.qtdCompartilhamentos}) )
+                .append(
+                    $('<div>',{class:'footer-card-compartilhamentos'})
+                    .append( $('<div>',{class:'compartilhamentos-qtd',text:aux.qtdCompartilhamentos}) )
+                    .append( $('<div>',{class:'compartilhamentos-text',text:'compartilhamentos'}) )
+                )
             )
         )
         .append(
@@ -85,83 +141,33 @@ function createPost(data) {
                 $('<div>',{class:'btn-card-actions'})
                 .append( $('<i>',{class:'far fa-thumbs-up'}) )
                 .append( $('<div>',{class:'text-btn-car', text:'Curtir'}) )
+                .on('click', function () {
+                    let element = $(this).closest('.card-footer').find('.footer-card-curtidas .curtidas-qtd');
+                    let aux = Number(element.text());
+                    element.text((aux + 1));
+                })
             )
             .append(
                 $('<div>',{class:'btn-card-actions'})
                 .append( $('<i>',{class:'far fa-comment'}) )
                 .append( $('<div>',{class:'text-btn-car', text:'Comentar'}) )
+                .on('click', function () {
+                    let element = $(this).closest('.card-footer').find('.footer-card-comentarios .comentarios-qtd');
+                    let aux = Number(element.text());
+                    element.text((aux + 1));
+                })
             )
             .append(
                 $('<div>',{class:'btn-card-actions'})
                 .append( $('<i>',{class:'fa fa-share'}) )
                 .append( $('<div>',{class:'text-btn-car', text:'Compartilhar'}) )
+                .on('click', function () {
+                    let element = $(this).closest('.card-footer').find('.footer-card-compartilhamentos .compartilhamentos-qtd');
+                    let aux = Number(element.text());
+                    element.text((aux + 1));
+                })
             )
         )
     );
     return html;
 };
-
-/* 
-<div class="post-card">
-    <div class="card-header">
-        <div class="header-card-left">
-            <div class="card-foto-user">
-                <img src="../img/not_foto_user.png">
-                <div class="tooltip-image-maior">
-                    <img src="../img/not_foto_user.png">
-                </div>
-            </div>
-            <div class="card-info-user">
-                <div class="info-user-nome">Diego de Freitas</div>
-                <div class="info-user-extra">
-                    <div class="extra-period"> 1d </div>
-                    <div class="extra-separador"></div>
-                    <div class="extra-icone">
-                        <i class="fa fa-users"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-card-right">
-            <i class="far fa-times-circle"></i>
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="body-card-row"></div>
-        <div class="body-card-row"></div>
-    </div>
-    <div class="card-footer">
-        <div class="footer-card-row">
-            <div class="footer-card-left">
-                <div class="footer-card-curtidas">
-                    <i class="far fa-thumbs-up"></i>
-                    336
-                </div>
-            </div>
-            <div class="footer-card-right">
-                <div class="footer-card-comentarios">
-                    45 comentários
-                </div>
-                <div class="extra-separador"></div>
-                <div class="footer-card-compartilhamentos">
-                    102 compartilhamentos
-                </div>
-            </div>
-        </div>
-        <div class="footer-card-row">
-            <div class="btn-card-actions">
-                <i class="far fa-thumbs-up"></i>
-                <div class="text-btn-car">Curtir</div>
-            </div>
-            <div class="btn-card-actions">
-                <i class="far fa-comment"></i>
-                <div class="text-btn-car">Comentar</div>
-            </div>
-            <div class="btn-card-actions">
-                <i class="fa fa-share"></i>
-                <div class="text-btn-car">Compartilhar</div>
-            </div>
-        </div>
-    </div>
-</div>
-*/
