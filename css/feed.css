@@ -1,6 +1,20 @@
+:root {
+    --main-color: #E41515;
+  }
+
+  @font-face {
+    font-family: RobotoCondensed-Bold;
+    src: url("../fonts/roboto_condensed/RobotoCondensed-Bold.ttf");
+  }
+  @font-face {
+    font-family: RobotoCondensed-Regular;
+    src: url("../fonts/roboto_condensed/RobotoCondensed-Regular.ttf");
+  }
+
 body{
     display: flex;
     justify-content: center;
+    margin: 0px;
 }
 .container-feed{
     width: 100%;
@@ -10,6 +24,8 @@ body{
     align-items: center;
     flex-direction: column;
     justify-content: flex-start;
+    font-family: RobotoCondensed-Regular;
+
 }
 .container-feed{
     max-width: 1000px;
@@ -23,12 +39,17 @@ body{
     flex-direction: row;
     border: 1px solid red;
     justify-content: space-between;
+    height: 40px;
+    background-color: var(--main-color);
 }
+
 .container-feed .body-feed{
     flex: 1;
     width: 100%;
     overflow: auto;
     border: 1px solid blue;
+    font-family: RobotoCondensed-Regular;
+
 }
 .body-feed .body-scroll{
     padding: 5px;
@@ -156,3 +177,35 @@ body{
 .footer-card-row .btn-card-actions i{
     margin-right: 5px;
 }
+
+.header-center .searchbar{
+    height: 25px;
+    border: solid 1px var(--main-color);
+    border-radius: 5px;
+    font-family: RobotoCondensed-Regular;
+}
+
+.header-left .buttons{
+    background-color: var(--main-color);
+    color: white;
+    font-family: 'RobotoCondensed-Bold';
+    border: solid 1px white;
+    border-radius: 5px;
+    font-size: medium;
+    margin-left: 5px;
+    margin-right: 5px;
+    height:30px;
+}
+.header-right .buttons{
+    background-color: var(--main-color);
+    color: white;
+    font-family: 'RobotoCondensed-Bold';
+    border: solid 1px white;
+    border-radius: 5px;
+    font-size: medium;
+    margin-left: 5px;
+    margin-right: 5px;
+    height:30px;
+
+}
+
