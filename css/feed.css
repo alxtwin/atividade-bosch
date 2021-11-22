@@ -1,5 +1,5 @@
 :root {
-    --main-color: #ff6565;
+    --main-color: #E41515;
     --border-color: #a1a1a1;
 }
 *:focus-visible{
@@ -143,12 +143,26 @@ body{
 }
 .card-header .card-foto-user{
     width: 24px;
+    display: flex;
     flex-wrap: nowrap;
     margin-right: 5px;
     position: relative;
     border-radius: 50%;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
     border: 1px solid #9d9d9d;
+}
+.card-header .card-foto-user:hover{
+    border-color: #1e1e1e;
+}
+.card-header .card-foto-user img{
+    width: 100%;
+    border-radius: 50%;
+}
+.card-header .card-foto-user img{
+    width: 100%;
+    border-radius: 50%;
 }
 .card-header .card-foto-user:hover{
     border-color: #1e1e1e;
@@ -163,13 +177,13 @@ body{
     flex-direction: column;
 }
 .card-info-user .info-user-nome{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     white-space: nowrap;
 }
 .card-info-user .info-user-extra{
     display: flex;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: bold;
 }
 .extra-separador{
@@ -178,7 +192,7 @@ body{
     align-items: center;
 }
 .extra-separador::before{
-    font-size: 4px;
+    font-size: 6px;
     content: "\f192";
     font-weight: 900;
     font-family: "Font Awesome 6 Free";
@@ -188,7 +202,7 @@ body{
     flex: 1;
     padding: 2px 5px;
     display: flex;
-    font-size: 10px;
+    font-size: 14;
 }
 .footer-card-row .footer-card-right{
     align-items: center;
